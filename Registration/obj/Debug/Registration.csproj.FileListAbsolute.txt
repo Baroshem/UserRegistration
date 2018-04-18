@@ -1,0 +1,10 @@
+C:\Users\kuba\source\repos\Registration\Registration\bin\Debug\Registration.exe.config
+C:\Users\kuba\source\repos\Registration\Registration\bin\Debug\Registration.exe
+C:\Users\kuba\source\repos\Registration\Registration\bin\Debug\Registration.pdb
+C:\Users\kuba\source\repos\Registration\Registration\obj\Debug\Registration.csprojResolveAssemblyReference.cache
+C:\Users\kuba\source\repos\Registration\Registration\obj\Debug\Registration.Form1.resources
+C:\Users\kuba\source\repos\Registration\Registration\obj\Debug\Registration.Properties.Resources.resources
+C:\Users\kuba\source\repos\Registration\Registration\obj\Debug\Registration.csproj.GenerateResource.cache
+C:\Users\kuba\source\repos\Registration\Registration\obj\Debug\Registration.csproj.CoreCompileInputs.cache
+C:\Users\kuba\source\repos\Registration\Registration\obj\Debug\Registration.exe
+C:\Users\kuba\source\repos\Registration\Registration\obj\Debug\Registration.pdb
