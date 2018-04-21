@@ -8,13 +8,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
-
+using System.Text.RegularExpressions;
 
 namespace Registration
 {
     public partial class Form1 : Form
     {
         SqlConnection connection = new SqlConnection(@"Data Source = (LocalDB)\MSSQLLocalDB; AttachDbFilename=C:\Users\kuba\Documents\DB_Server.mdf;Integrated Security = True; Connect Timeout = 30");
+
         public Form1()
         {
             InitializeComponent();
@@ -35,13 +36,14 @@ namespace Registration
             connection.Open();
             SqlCommand cmd = connection.CreateCommand();
             cmd.CommandType = CommandType.Text;
-            cmd.CommandText = "insert into [Data] (Name, Surname, Address) values ('"+textBox1.Text+"', '"+textBox2.Text+"', '"+textBox3.Text+"')";
+            cmd.CommandText = "insert into [Data] (Name, Surname, Address, Age) values ('"+textBox1.Text+"', '"+textBox2.Text+"', '"+textBox3.Text+"', '"+textBox5.Text+"')";
             cmd.ExecuteNonQuery();
             connection.Close();
             textBox1.Text = "";
             textBox2.Text = "";
             textBox3.Text = "";
             textBox4.Text = "";
+            textBox5.Text = "";
             display_data();
             MessageBox.Show("Data inserted succesfully");
         }
@@ -77,6 +79,7 @@ namespace Registration
             textBox2.Text = "";
             textBox3.Text = "";
             textBox4.Text = "";
+            textBox5.Text = "";
             display_data();
             MessageBox.Show("Data deleted succesfully");
         }
@@ -93,6 +96,7 @@ namespace Registration
             textBox2.Text = "";
             textBox3.Text = "";
             textBox4.Text = "";
+            textBox5.Text = "";
             display_data();
             MessageBox.Show("Data updated succesfully");
         }
@@ -113,6 +117,61 @@ namespace Registration
             textBox2.Text = "";
             textBox3.Text = "";
             textBox4.Text = "";
+            textBox5.Text = "";
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if(!char.IsControl(e.KeyChar) && !char.IsLetter(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void textBox2_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsLetter(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void textBox3_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsLetter(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void textBox5_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void textBox6_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            int A = 0, B = 0;
+            for (A = 0; A < dataGridView1.Rows.Count; A++)
+            {
+                B += Convert.ToInt32(dataGridView1.Rows[A].Cells[3].Value);
+            }
+            int NumOfRows = dataGridView1.Rows.Count - 1;
+            double AVG = B / NumOfRows;
+            textBox6.Text = AVG.ToString();
         }
     }
 }
